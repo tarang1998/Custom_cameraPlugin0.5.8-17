@@ -394,12 +394,14 @@ public class Camera {
     try {
       recordingVideo = false;
 
-      try {
-        Camera.this.cameraCaptureSession.stopRepeating();
-        Camera.this.cameraCaptureSession.abortCaptures();
-      } catch (CameraAccessException e) {
-        result.error("cameraException", e.getMessage(), null);
-      } 
+      // try {
+      //   Camera.this.cameraCaptureSession.stopRepeating();
+      //   Camera.this.cameraCaptureSession.abortCaptures();
+      // } catch (CameraAccessException e) {
+      //   result.error("cameraException", e.getMessage(), null);
+      // } 
+
+      closeCaptureSession();
       
       mediaRecorder.stop();
       mediaRecorder.reset();
